@@ -13,6 +13,11 @@ namespace CodeBase.Logic.Character
 
         private static List<CharacterConfig> characterList;
 
+        public CharacterLoader()
+        {
+            LoadCharactersConfig();
+        }
+
         public void LoadCharactersConfig()
         {
             var allCharacterData = Resources.LoadAll<CharacterConfig>(CharacterPath);
@@ -25,6 +30,11 @@ namespace CodeBase.Logic.Character
 
         public CharacterConfig GetCurrentCharter()
         {
+            if (characterList == null || characterList.Count == 0)
+            {
+                 return null;
+            }
+
             string currentPlayerID = PlayerPrefs.GetString(PrefsKeys.CURRENT_PLAYER_ID, DefaultLevel);
             CharacterConfig currentCharter = characterList.FirstOrDefault(character => character.ID == currentPlayerID);
 

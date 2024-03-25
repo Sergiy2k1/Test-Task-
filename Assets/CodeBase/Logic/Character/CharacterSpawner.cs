@@ -9,10 +9,12 @@ namespace CodeBase.Logic.Charactar
         CharacterLoader _characterLoader;
         GameObject _previousCharacter;
 
-        public void SpawnCharacter()
+        public CharacterSpawner()
         {
             _characterLoader = new CharacterLoader();
-            _characterLoader.LoadCharactersConfig();
+        }
+        public void SpawnCharacter()
+        {
             _characterLoader.GetCurrentCharter();
 
             CharacterConfig currentCharter = _characterLoader.GetCurrentCharter();
@@ -30,8 +32,6 @@ namespace CodeBase.Logic.Charactar
 
         public void SpawnRandomCharacter()
         {
-            _characterLoader = new CharacterLoader();
-            _characterLoader.LoadCharactersConfig();
             CharacterConfig randomCharacterData = _characterLoader.GetRandomCharacter();
 
             if (randomCharacterData != null)

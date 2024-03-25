@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace CodeBase.UI
 {
-    public class GenerateButton : MonoBehaviour
+    public class CharacterGenerationButton : MonoBehaviour
     {
         [SerializeField] private Button button;
 
